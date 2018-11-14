@@ -77,7 +77,7 @@ func handleTrap(packet *g.SnmpPacket, addr *net.UDPAddr) {
 		log.Println(err.Error())
 		return
 	}
-	http.Post(fmt.Sprintf("http://go2hal.legion.sbsa.local/api/alert/%v", group), "content/text", strings.NewReader(msg))
+	http.Post(fmt.Sprintf("%v/api/alert/%v",os.Getenv("HAL"), group), "content/text", strings.NewReader(msg))
 }
 
 func getGroupFromCommunity(community string) (string, error) {
