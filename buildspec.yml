@@ -19,6 +19,8 @@ phases:
     -
   post_build:
     commands:
+    - aws s3 cp ./snmpHal "s3://snmphal/snmpHal"
+
     finally:
 
 artifacts:
