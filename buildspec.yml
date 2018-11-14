@@ -15,11 +15,11 @@ phases:
   build:
     commands:
     - go get github.com/weAutomateEverything/snmpHal
-    - GOOS=linux go build -ldflags '-linkmode=external' -o ./snmpHal github.com/weAutomateEverything/snmpHal
+    - GOOS=linux CGO_ENABLED=1 go build -o ./snmpHal github.com/weAutomateEverything/snmpHal
     -
   post_build:
     commands:
-    - aws s3 cp ./snmpHal "s3://snmphal/snmpHal"
+    - aws s3 cp ./snmpHal "s3://snmphal/snmpHal" --acl public-read
 
     finally:
 
