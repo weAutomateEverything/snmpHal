@@ -25,6 +25,6 @@ phases:
 
 artifacts:
   files:
-  - smtphal
+  - snmpHal
 cache:
   paths:
