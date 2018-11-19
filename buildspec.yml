@@ -15,7 +15,7 @@ phases:
   build:
     commands:
     - go get github.com/weAutomateEverything/snmpHal
-    - GOOS=linux CGO_ENABLED=1 go build -o ./snmpHal github.com/weAutomateEverything/snmpHal
+    - GOOS=linux CGO_ENABLED=1 go build -ldflags '-linkmode=external' -o ./snmpHal github.com/weAutomateEverything/snmpHal
     -
   post_build:
     commands:
